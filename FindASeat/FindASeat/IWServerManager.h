@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "IWEntranceManager.h"
+#define IWGotUserInfoNotification @"IWGotUserInfoNotification"
 @interface IWServerManager : NSObject
 
 + (void)getCurrenRoomInfo;

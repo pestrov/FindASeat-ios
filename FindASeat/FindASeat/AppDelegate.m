@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "IWServerManager.h"
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -21,6 +22,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+  [IWServerManager getCurrenRoomInfo];
     return YES;
 }
 
