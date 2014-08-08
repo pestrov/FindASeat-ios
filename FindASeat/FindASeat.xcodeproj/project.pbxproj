@@ -35,6 +35,7 @@
 		9082A29F1994AEBB00F92948 /* IWHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A29D1994AEBB00F92948 /* IWHallViewController.m */; };
 		9082A2A01994AEBB00F92948 /* IWHallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9082A29E1994AEBB00F92948 /* IWHallViewController.xib */; };
 		9082A2A31994AFC500F92948 /* IWServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A2A21994AFC500F92948 /* IWServerManager.m */; };
+		A5CE48461994B74E00E75708 /* IWSeatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE48451994B74E00E75708 /* IWSeatsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		9082A29E1994AEBB00F92948 /* IWHallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IWHallViewController.xib; sourceTree = "<group>"; };
 		9082A2A11994AFC500F92948 /* IWServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWServerManager.h; sourceTree = "<group>"; };
 		9082A2A21994AFC500F92948 /* IWServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWServerManager.m; sourceTree = "<group>"; };
+		A5CE48441994B74E00E75708 /* IWSeatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWSeatsView.h; sourceTree = "<group>"; };
+		A5CE48451994B74E00E75708 /* IWSeatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWSeatsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				9082A29C1994AEBB00F92948 /* IWHallViewController.h */,
 				9082A29D1994AEBB00F92948 /* IWHallViewController.m */,
 				9082A29E1994AEBB00F92948 /* IWHallViewController.xib */,
+				A5CE48441994B74E00E75708 /* IWSeatsView.h */,
+				A5CE48451994B74E00E75708 /* IWSeatsView.m */,
 				9082A2A41994AFCC00F92948 /* Network */,
 				9082A26A1994AD6800F92948 /* Images.xcassets */,
 				9082A2671994AD6800F92948 /* FindASeat.xcdatamodeld */,
@@ -314,6 +319,7 @@
 				9082A2661994AD6800F92948 /* AppDelegate.m in Sources */,
 				9082A2A31994AFC500F92948 /* IWServerManager.m in Sources */,
 				9082A29F1994AEBB00F92948 /* IWHallViewController.m in Sources */,
+				A5CE48461994B74E00E75708 /* IWSeatsView.m in Sources */,
 				9082A2691994AD6800F92948 /* FindASeat.xcdatamodeld in Sources */,
 				9082A2621994AD6800F92948 /* main.m in Sources */,
 			);
@@ -520,6 +526,7 @@
 				9082A2841994AD6800F92948 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9082A2851994AD6800F92948 /* Build configuration list for PBXNativeTarget "FindASeatTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +535,7 @@
 				9082A2871994AD6800F92948 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -10,4 +10,7 @@
 
 @interface IWHallViewController : UIViewController
 
+@property NSMutableDictionary * seatsInfo;
+@property IBOutlet UIView * seatsViewContainer;
+
 @end
