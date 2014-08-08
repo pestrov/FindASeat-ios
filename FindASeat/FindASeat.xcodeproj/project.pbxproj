@@ -37,6 +37,7 @@
 		9082A2A31994AFC500F92948 /* IWServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A2A21994AFC500F92948 /* IWServerManager.m */; };
 		A5CE48461994B74E00E75708 /* IWSeatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE48451994B74E00E75708 /* IWSeatsView.m */; };
 		9082A2A71994BA4900F92948 /* IWEntranceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A2A61994BA4900F92948 /* IWEntranceManager.m */; };
+		9082A2B01994C40400F92948 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9082A2AF1994C40400F92948 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		A5CE48451994B74E00E75708 /* IWSeatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWSeatsView.m; sourceTree = "<group>"; };
 		9082A2A51994BA4900F92948 /* IWEntranceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWEntranceManager.h; sourceTree = "<group>"; };
 		9082A2A61994BA4900F92948 /* IWEntranceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWEntranceManager.m; sourceTree = "<group>"; };
+		9082A2AF1994C40400F92948 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9082A2B01994C40400F92948 /* CoreBluetooth.framework in Frameworks */,
 				9082A29B1994ADFA00F92948 /* libz.1.1.3.dylib in Frameworks */,
 				9082A2991994ADEC00F92948 /* SystemConfiguration.framework in Frameworks */,
 				9082A2971994ADE300F92948 /* StoreKit.framework in Frameworks */,
@@ -147,6 +150,7 @@
 		9082A2521994AD6800F92948 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9082A2AF1994C40400F92948 /* CoreBluetooth.framework */,
 				9082A29A1994ADFA00F92948 /* libz.1.1.3.dylib */,
 				9082A2981994ADEC00F92948 /* SystemConfiguration.framework */,
 				9082A2961994ADE300F92948 /* StoreKit.framework */,
@@ -280,6 +284,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = IWorkshop;
 				TargetAttributes = {
+					9082A24F1994AD6800F92948 = {
+						DevelopmentTeam = H4T5NA996X;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					9082A26F1994AD6800F92948 = {
 						TestTargetID = 9082A24F1994AD6800F92948;
 					};
@@ -452,6 +464,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -460,6 +474,7 @@
 				GCC_PREFIX_HEADER = "FindASeat/FindASeat-Prefix.pch";
 				INFOPLIST_FILE = "FindASeat/FindASeat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -469,6 +484,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -477,6 +494,7 @@
 				GCC_PREFIX_HEADER = "FindASeat/FindASeat-Prefix.pch";
 				INFOPLIST_FILE = "FindASeat/FindASeat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

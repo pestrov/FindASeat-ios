@@ -14,6 +14,7 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Parse setApplicationId:@"Bvvlzr8qEBylzyQ9J4rmpul9iqZS3KZwZ1AbC4Hh"
@@ -22,6 +23,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+  self.entranceManager = [[IWEntranceManager alloc] init];
   [IWServerManager getCurrenRoomInfo];
     return YES;
 }

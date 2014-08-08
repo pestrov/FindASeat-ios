@@ -13,10 +13,10 @@
 
 + (void)getCurrenRoomInfo {
   PFQuery *query = [PFQuery queryWithClassName:@"Entrance"];
-  [query getObjectInBackgroundWithId:[IWEntranceManager closestEntranceID] block:^(PFObject *entrance, NSError *error) {
+  [query whereKey:@"UDID" equalTo:[IWEntranceManager closestEntranceID]];
+  [query findObjectsInBackgroundWithBlock:^(NSArray *entrances, NSError *error) {
     
-    NSLog(@"%@", [entrance relationForKey:@"room"]);
-    PFRelation *room = [entrance relationForKey:@"room"];
+    PFRelation *room = [[entrances lastObject] relationForKey:@"room"];
     [[room query] findObjectsInBackgroundWithBlock:^(NSArray *rooms, NSError *error) {
       if (!error) {
         PFObject *room = [rooms lastObject];
