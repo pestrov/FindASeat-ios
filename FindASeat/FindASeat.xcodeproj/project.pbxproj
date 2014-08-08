@@ -35,6 +35,7 @@
 		9082A29F1994AEBB00F92948 /* IWHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A29D1994AEBB00F92948 /* IWHallViewController.m */; };
 		9082A2A01994AEBB00F92948 /* IWHallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9082A29E1994AEBB00F92948 /* IWHallViewController.xib */; };
 		9082A2A31994AFC500F92948 /* IWServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A2A21994AFC500F92948 /* IWServerManager.m */; };
+		9082A2A71994BA4900F92948 /* IWEntranceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A2A61994BA4900F92948 /* IWEntranceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		9082A29E1994AEBB00F92948 /* IWHallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IWHallViewController.xib; sourceTree = "<group>"; };
 		9082A2A11994AFC500F92948 /* IWServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWServerManager.h; sourceTree = "<group>"; };
 		9082A2A21994AFC500F92948 /* IWServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWServerManager.m; sourceTree = "<group>"; };
+		9082A2A51994BA4900F92948 /* IWEntranceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWEntranceManager.h; sourceTree = "<group>"; };
+		9082A2A61994BA4900F92948 /* IWEntranceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWEntranceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,7 @@
 				9082A29C1994AEBB00F92948 /* IWHallViewController.h */,
 				9082A29D1994AEBB00F92948 /* IWHallViewController.m */,
 				9082A29E1994AEBB00F92948 /* IWHallViewController.xib */,
+				9082A2A81994BC7B00F92948 /* Model */,
 				9082A2A41994AFCC00F92948 /* Network */,
 				9082A26A1994AD6800F92948 /* Images.xcassets */,
 				9082A2671994AD6800F92948 /* FindASeat.xcdatamodeld */,
@@ -208,10 +212,19 @@
 		9082A2A41994AFCC00F92948 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9082A2A51994BA4900F92948 /* IWEntranceManager.h */,
+				9082A2A61994BA4900F92948 /* IWEntranceManager.m */,
 				9082A2A11994AFC500F92948 /* IWServerManager.h */,
 				9082A2A21994AFC500F92948 /* IWServerManager.m */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		9082A2A81994BC7B00F92948 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +327,7 @@
 				9082A2661994AD6800F92948 /* AppDelegate.m in Sources */,
 				9082A2A31994AFC500F92948 /* IWServerManager.m in Sources */,
 				9082A29F1994AEBB00F92948 /* IWHallViewController.m in Sources */,
+				9082A2A71994BA4900F92948 /* IWEntranceManager.m in Sources */,
 				9082A2691994AD6800F92948 /* FindASeat.xcdatamodeld in Sources */,
 				9082A2621994AD6800F92948 /* main.m in Sources */,
 			);

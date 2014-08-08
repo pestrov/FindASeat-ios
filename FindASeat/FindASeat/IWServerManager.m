@@ -12,6 +12,29 @@
 @implementation IWServerManager
 
 + (void)getCurrenRoomInfo {
-  
+  PFQuery *query = [PFQuery queryWithClassName:@"Entrance"];
+  [query getObjectInBackgroundWithId:[IWEntranceManager closestEntranceID] block:^(PFObject *entrance, NSError *error) {
+    
+    NSLog(@"%@", [entrance relationForKey:@"room"]);
+    PFRelation *room = [entrance relationForKey:@"room"];
+    [[room query] findObjectsInBackgroundWithBlock:^(NSArray *rooms, NSError *error) {
+      if (!error) {
+        PFObject *room = [rooms lastObject];
+        PFRelation *seats = [room relationForKey:@"seats"];
+        [[seats query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+          if (!error) {
+            NSMutableArray *seatsArray = [NSMutableArray arrayWithCapacity:objects.count];
+            for (PFObject *seat in objects)
+              [seatsArray addObject:@{@"position":@[seat[@"height"], seat[@"width"]],
+                                      @"size": @[seat[@"x"],seat[@"y"]],
+                                      @"number":seat[@"seatID"]}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:IWGotUserInfoNotification object:nil userInfo:@{@"size":@[room[@"x"],room[@"y"]],
+                                                                                                                       @"seats":seatsArray}];
+          }
+        }];
+      }
+    }];
+    ;
+  }];
 }
 @end
