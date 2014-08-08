@@ -7,6 +7,8 @@
 //
 
 #import "IWEntranceManager.h"
+#import "IWServerManager.h"
+#import "AppDelegate.h"
 #define kFindASeatUUID @"EBEFD083-70A2-47C8-9837-E7B5634DF524"
 @implementation IWEntranceManager
 
@@ -26,8 +28,9 @@
   [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
-+ (NSString *)closestEntranceID {
-  return @"b3J7w16RVG";
++ (NSNumber *)closestEntranceID {
+  return @(100001);
+  return @([[(AppDelegate *)[[UIApplication sharedApplication] delegate] entranceManager] entranceID]);
 }
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
@@ -48,6 +51,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
   [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+  self.entranceID = 0;
   NSLog(@"OH NO");
 }
 
@@ -65,5 +69,14 @@
   } else if (beacon.proximity == CLProximityFar) {
     NSLog(@"FAR");
   }
+  
+  if (!self.entranceID) {
+    [self saveEtranceIDFrom:beacon.major minor:beacon.minor];
+    [IWServerManager getCurrenRoomInfo];
+  }
+}
+
+- (void)saveEtranceIDFrom:(NSNumber *)major minor:(NSNumber *)minor {
+  self.entranceID = major.unsignedIntegerValue * 100000 + minor.unsignedIntegerValue;
 }
 @end

@@ -13,7 +13,7 @@
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-
-+ (NSString *)closestEntranceID;
+@property NSUInteger entranceID;
++ (NSNumber *)closestEntranceID;
 
 @end

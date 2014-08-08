@@ -13,7 +13,7 @@
 
 + (void)getCurrenRoomInfo {
   PFQuery *query = [PFQuery queryWithClassName:@"Entrance"];
-  [query whereKey:@"UDID" equalTo:[IWEntranceManager closestEntranceID]];
+  [query whereKey:@"entranceNumber" equalTo:[IWEntranceManager closestEntranceID]];
   [query findObjectsInBackgroundWithBlock:^(NSArray *entrances, NSError *error) {
     
     PFRelation *room = [[entrances lastObject] relationForKey:@"room"];
