@@ -13,6 +13,10 @@
 
 + (void)getCurrenRoomInfo {
   PFQuery *query = [PFQuery queryWithClassName:@"Entrance"];
+  
+  if (![IWEntranceManager closestEntranceID])
+    return;
+  
   [query whereKey:@"entranceNumber" equalTo:[IWEntranceManager closestEntranceID]];
   [query findObjectsInBackgroundWithBlock:^(NSArray *entrances, NSError *error) {
     
