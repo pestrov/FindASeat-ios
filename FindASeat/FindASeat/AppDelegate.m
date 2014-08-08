@@ -15,6 +15,7 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Parse setApplicationId:@"Bvvlzr8qEBylzyQ9J4rmpul9iqZS3KZwZ1AbC4Hh"
@@ -24,8 +25,7 @@
     self.window.rootViewController = [[IWHallViewController alloc]init];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-  
-  
+    self.entranceManager = [[IWEntranceManager alloc] init];
     return YES;
 }
 

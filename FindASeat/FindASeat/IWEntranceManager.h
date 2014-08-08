@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+@interface IWEntranceManager : NSObject <CLLocationManagerDelegate, CBPeripheralManagerDelegate>
 
-@interface IWEntranceManager : NSObject
+@property (strong, nonatomic) CLBeaconRegion *beaconRegion;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 + (NSString *)closestEntranceID;
 
