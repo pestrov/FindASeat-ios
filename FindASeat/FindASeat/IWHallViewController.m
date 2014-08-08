@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 #import "IWHallViewController.h"
 #import "IWSeatsView.h"
+#import "IWServerManager.h"
 
 @interface IWHallViewController ()
 
@@ -21,7 +22,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.seatsInfo = [NSMutableDictionary new];
     }
     return self;
 }
@@ -31,13 +31,23 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib
   [self addSeatsView];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSeats:) name:IWGotUserInfoNotification object:nil];
+  [IWServerManager getCurrenRoomInfo];
+}
+
+- (void)updateSeats:(NSNotification *)notif
+{
+  NSDictionary * receivedSeatsInfo = notif.userInfo;
+  self.seatsView.seatsInfo = receivedSeatsInfo;
+  [self.seatsView drawSeats];
 }
 
 - (void)addSeatsView
 {
-  IWSeatsView * seatsView = [[IWSeatsView alloc]initWithFrame:self.seatsViewContainer.bounds andSeatsInfo:self.seatsInfo];
-  [self.seatsViewContainer addSubview:seatsView];
-  [seatsView drawSeats];
+  self.seatsView = [[IWSeatsView alloc]initWithFrame:self.seatsViewContainer.bounds andSeatsInfo:nil];
+  self.seatsView.delegate = self;
+  self.seatsView.center = CGPointMake(self.seatsViewContainer.center.x, self.seatsViewContainer.center.y);
+  [self.seatsViewContainer addSubview:self.seatsView];
 }
 
 - (void)didReceiveMemoryWarning

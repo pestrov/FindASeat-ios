@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "IWServerManager.h"
+#import "IWHallViewController.h"
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -20,9 +21,11 @@
                 clientKey:@"33VyhBNOkxED4BMk5PUvGGjTl7RIKiOn1i4U5CtS"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.window.rootViewController = [[IWHallViewController alloc]init];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-  [IWServerManager getCurrenRoomInfo];
+  
+  
     return YES;
 }
 

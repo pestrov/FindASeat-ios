@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class IWSeatsView;
 @interface IWHallViewController : UIViewController
 
-@property NSMutableDictionary * seatsInfo;
 @property IBOutlet UIView * seatsViewContainer;
+@property IWSeatsView * seatsView;
 
 @end

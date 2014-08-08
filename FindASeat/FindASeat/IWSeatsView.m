@@ -13,7 +13,6 @@
 - (id)initWithFrame:(CGRect)frame andSeatsInfo:(NSDictionary *)seatsInfo {
   self = [super initWithFrame:frame];
   if (self) {
-    self.backgroundColor = [UIColor clearColor];
     self.seatsInfo = seatsInfo;
   }
   return self;
@@ -38,6 +37,27 @@
     CGRect seatPlace = CGRectMake(scale*seatX, scale*seatY, scale*seatWidth, scale*seatHeight);
     [self drawSeatWithFrame:seatPlace andNumber:seatDict[@"number"]];
   }
+  [self sizeToFit];
+  self.center = CGPointMake(self.superview.bounds.size.width/2.0, self.superview.bounds.size.height/2.0);
+}
+
+- (CGSize)sizeThatFits:(CGSize)size
+{
+  CGFloat maximumX = 0.0;
+  CGFloat maximumY = 0.0;
+  for (UIView * view in self.subviews) {
+    if ((view.frame.origin.x + view.frame.size.width) > maximumX) {
+      maximumX = view.frame.origin.x+view.frame.size.width;
+    }
+    if ((view.frame.origin.y + view.frame.size.height) > maximumY) {
+      maximumY = view.frame.origin.y + view.frame.size.height;
+    }
+  }
+  if (maximumX > 0.0 && maximumY > 0.0) {
+    return CGSizeMake(maximumX, maximumY);
+  } else {
+    return size;
+  }
 }
 
 - (void)drawSeatWithFrame:(CGRect)frame andNumber:(NSNumber *)number
@@ -49,8 +69,10 @@
   
   UILabel * numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
   numberLabel.text = [NSString stringWithFormat:@"%d", number.intValue];
+  numberLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0];
+  numberLabel.textColor = [UIColor whiteColor];
   [numberLabel sizeToFit];
-  numberLabel.center = CGPointMake(seatView.center.x, seatView.center.y);
+  numberLabel.center = CGPointMake(seatView.bounds.size.width/2.0, seatView.bounds.size.height/3.0);
   [seatView addSubview:numberLabel];
   
   [self addSubview:seatView];

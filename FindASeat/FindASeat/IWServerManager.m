@@ -25,10 +25,10 @@
           if (!error) {
             NSMutableArray *seatsArray = [NSMutableArray arrayWithCapacity:objects.count];
             for (PFObject *seat in objects)
-              [seatsArray addObject:@{@"position":@[seat[@"height"], seat[@"width"]],
-                                      @"size": @[seat[@"x"],seat[@"y"]],
+              [seatsArray addObject:@{@"position":@[seat[@"x"], seat[@"y"]],
+                                      @"size": @[seat[@"width"], seat[@"height"]],
                                       @"number":seat[@"seatID"]}];
-            [[NSNotificationCenter defaultCenter] postNotificationName:IWGotUserInfoNotification object:nil userInfo:@{@"size":@[room[@"x"],room[@"y"]],
+            [[NSNotificationCenter defaultCenter] postNotificationName:IWGotUserInfoNotification object:nil userInfo:@{@"size":@[room[@"width"],room[@"height"]],
                                                                                                                        @"seats":seatsArray}];
           }
         }];
