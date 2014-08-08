@@ -74,20 +74,22 @@
   [numberLabel sizeToFit];
   numberLabel.center = CGPointMake(seatView.bounds.size.width/2.0, seatView.bounds.size.height/3.0);
   [seatView addSubview:numberLabel];
-  
+
   [self addSubview:seatView];
 }
 
 - (CGFloat)scaleCoefForFrame:(CGRect)frame
 {
-  if ((frame.size.width > self.frame.size.width) || (frame.size.height > self.frame.size.height)) {
-    if (frame.size.width > frame.size.height) {
-      return self.frame.size.width/frame.size.width;
-    } else {
-      return self.frame.size.height/frame.size.height;
-    }
+  return MIN(self.frame.size.width/frame.size.width, self.frame.size.height/frame.size.height);
+  
+  /* Former scale
+  if (frame.size.width > frame.size.height) {
+    return self.frame.size.width/frame.size.width;
+  } else {
+    return self.frame.size.height/frame.size.height;
   }
   return 1.0;
+  */
 }
 
 @end

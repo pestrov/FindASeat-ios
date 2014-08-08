@@ -46,7 +46,7 @@
 {
   self.seatsView = [[IWSeatsView alloc]initWithFrame:self.seatsViewContainer.bounds andSeatsInfo:nil];
   self.seatsView.delegate = self;
-  self.seatsView.center = CGPointMake(self.seatsViewContainer.center.x, self.seatsViewContainer.center.y);
+  self.seatsView.center = CGPointMake(self.seatsViewContainer.bounds.size.width/2.0, self.seatsViewContainer.bounds.size.height/2.0);
   [self.seatsViewContainer addSubview:self.seatsView];
 }
 
