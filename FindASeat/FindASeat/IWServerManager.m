@@ -24,6 +24,7 @@
     [[room query] findObjectsInBackgroundWithBlock:^(NSArray *rooms, NSError *error) {
       if (!error) {
         PFObject *room = [rooms lastObject];
+        [self getBestSeatForRoom:[room objectId]];
         PFRelation *seats = [room relationForKey:@"seats"];
         [[seats query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
           if (!error) {
@@ -40,5 +41,16 @@
     }];
     ;
   }];
+}
+
++ (void)getBestSeatForRoom:(NSString *)roomId {
+  [PFCloud callFunctionInBackground:@"getClosestSeat"
+                     withParameters:@{@"roomId": roomId}
+                              block:^(NSNumber *seatNumber, NSError *error) {
+                                if (!error) {
+                                  [[NSNotificationCenter defaultCenter] postNotificationName:IWClosestSeatNotification object:nil userInfo:@{@"closestSeat":seatNumber}];
+                                  NSLog(@"Seat! %@", seatNumber);
+                                }
+                              }];
 }
 @end

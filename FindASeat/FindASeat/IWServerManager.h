@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "IWEntranceManager.h"
 #define IWGotUserInfoNotification @"IWGotUserInfoNotification"
+#define IWClosestSeatNotification @"IWClosestSeatNotification"
 @interface IWServerManager : NSObject
 
 + (void)getCurrenRoomInfo;
-
 @end
