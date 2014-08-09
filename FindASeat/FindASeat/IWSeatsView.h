@@ -13,8 +13,11 @@
 
 - (id)initWithFrame:(CGRect)frame andSeatsInfo:(NSDictionary *)seatsInfo;
 - (void)drawSeats;
+- (void)showClosestSeat;
 
 @property (weak) IWHallViewController * delegate;
 @property NSDictionary * seatsInfo;
+@property NSMutableArray * seatViews;
+@property NSUInteger closestSeatNumber;
 
 @end

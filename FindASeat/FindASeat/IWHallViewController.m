@@ -11,10 +11,6 @@
 #import "IWSeatsView.h"
 #import "IWServerManager.h"
 
-@interface IWHallViewController ()
-
-@end
-
 @implementation IWHallViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,7 +28,15 @@
   // Do any additional setup after loading the view from its nib
   [self addSeatsView];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSeats:) name:IWGotUserInfoNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateClosestSeat:) name:IWClosestSeatNotification object:nil];
   [IWServerManager getCurrenRoomInfo];
+}
+
+- (void)updateClosestSeat:(NSNotification *)notif
+{
+  NSDictionary * closestSeat = notif.userInfo;
+  self.seatsView.closestSeatNumber = [closestSeat[@"closestSeat"] unsignedIntegerValue];
+  [self.seatsView showClosestSeat];
 }
 
 - (void)updateSeats:(NSNotification *)notif

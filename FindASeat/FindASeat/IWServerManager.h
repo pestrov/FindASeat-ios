@@ -13,4 +13,6 @@
 @interface IWServerManager : NSObject
 
 + (void)getCurrenRoomInfo;
++ (void)getBestSeatForRoom:(NSString *)roomId;
+
 @end

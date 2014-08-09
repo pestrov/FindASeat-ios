@@ -14,6 +14,7 @@
   self = [super initWithFrame:frame];
   if (self) {
     self.seatsInfo = seatsInfo;
+    self.seatViews = [NSMutableArray new];
   }
   return self;
 }
@@ -23,6 +24,18 @@
   CGRect totalFrame = CGRectMake(0.0, 0.0, [[[self.seatsInfo valueForKey:@"size"] firstObject] floatValue], [[[self.seatsInfo valueForKey:@"size"] lastObject] floatValue]);
   CGFloat scaleCoef = [self scaleCoefForFrame:totalFrame];
   [self drawSeatsWithScaleCoef:scaleCoef];
+  if (self.seatViews.count && self.closestSeatNumber) {
+    [self showClosestSeat];
+  }
+}
+
+- (void)showClosestSeat {
+  UIView * seatView = [self.seatViews objectAtIndex:self.closestSeatNumber%11];
+  for (UIView * subview in seatView.subviews) {
+    if ([subview isKindOfClass:[UILabel class]]) {
+      [(UILabel *)subview setTextColor:[UIColor redColor]];
+    }
+  }
 }
 
 - (void)drawSeatsWithScaleCoef:(CGFloat)scale
@@ -75,6 +88,7 @@
   numberLabel.center = CGPointMake(seatView.bounds.size.width/2.0, seatView.bounds.size.height/3.0);
   [seatView addSubview:numberLabel];
 
+  [self.seatViews addObject:seatView];
   [self addSubview:seatView];
 }
 
