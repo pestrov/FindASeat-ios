@@ -29,7 +29,7 @@
 }
 
 + (NSNumber *)closestEntranceID {
-  return @(100001);
+  //return @(100001);
   return @([[(AppDelegate *)[[UIApplication sharedApplication] delegate] entranceManager] entranceID]);
 }
 

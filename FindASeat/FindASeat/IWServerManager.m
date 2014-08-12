@@ -31,7 +31,8 @@
             for (PFObject *seat in objects)
               [seatsArray addObject:@{@"position":@[seat[@"x"], seat[@"y"]],
                                       @"size": @[seat[@"width"], seat[@"height"]],
-                                      @"number":seat[@"seatID"]}];
+                                      @"number":seat[@"seatID"],
+                                      @"vacant":seat[@"vacant"]}];
             [[NSNotificationCenter defaultCenter] postNotificationName:IWGotUserInfoNotification object:nil userInfo:@{@"size":@[room[@"width"],room[@"height"]],
                                                                                                                        @"seats":seatsArray}];
             

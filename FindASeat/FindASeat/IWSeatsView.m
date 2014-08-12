@@ -48,7 +48,7 @@
     CGFloat seatY = [[seatDict[@"position"] lastObject] floatValue] - seatHeight/2.0;
     
     CGRect seatPlace = CGRectMake(scale*seatX, scale*seatY, scale*seatWidth, scale*seatHeight);
-    [self drawSeatWithFrame:seatPlace andNumber:seatDict[@"number"]];
+    [self drawSeatWithFrame:seatPlace andNumber:seatDict[@"number"] vacant:seatDict[@"vacant"]];
   }
   [self sizeToFit];
   self.center = CGPointMake(self.superview.bounds.size.width/2.0, self.superview.bounds.size.height/2.0);
@@ -73,7 +73,7 @@
   }
 }
 
-- (void)drawSeatWithFrame:(CGRect)frame andNumber:(NSNumber *)number
+- (void)drawSeatWithFrame:(CGRect)frame andNumber:(NSNumber *)number vacant:(id)vacant
 {
   UIView * seatView = [[UIView alloc]initWithFrame:frame];
   UIImageView * icon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"SeatIcon"]];
@@ -83,7 +83,11 @@
   UILabel * numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
   numberLabel.text = [NSString stringWithFormat:@"%d", number.intValue];
   numberLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0];
-  numberLabel.textColor = [UIColor whiteColor];
+  if ([vacant integerValue])
+    numberLabel.textColor = [UIColor greenColor];
+  else
+    numberLabel.textColor = [UIColor whiteColor];
+  
   [numberLabel sizeToFit];
   numberLabel.center = CGPointMake(seatView.bounds.size.width/2.0, seatView.bounds.size.height/3.0);
   [seatView addSubview:numberLabel];
