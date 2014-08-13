@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class IWSeatsView;
+@class IWAnalyticsView;
 @interface IWHallViewController : UIViewController
 
 @property IBOutlet UIView * seatsViewContainer;
+@property IBOutlet UIView * analyticsViewContainer;
+
 @property IWSeatsView * seatsView;
+@property IWAnalyticsView * analyticsView;
 
 @end
