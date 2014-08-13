@@ -24,12 +24,17 @@
 - (void)initRegion {
   NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:kFindASeatUUID];
   self.beaconRegion =  [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.findaseat"];
-  //[self.locationManager startMonitoringForRegion:self.beaconRegion];
+  
+  self.beaconRegion.notifyEntryStateOnDisplay = YES;
+  self.beaconRegion.notifyOnEntry = YES;
+  self.beaconRegion.notifyOnExit = YES;
+  
+  [self.locationManager startMonitoringForRegion:self.beaconRegion];
   [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
 + (NSNumber *)closestEntranceID {
-  //return @(100001);
+  return @(100001);
   return @([[(AppDelegate *)[[UIApplication sharedApplication] delegate] entranceManager] entranceID]);
 }
 
@@ -54,7 +59,18 @@
   self.entranceID = 0;
   NSLog(@"OH NO");
 }
-
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
+  if (state == CLRegionStateInside) {
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+      
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    localNotification.alertBody = @"Get the best seat in the room";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+  }
+}
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
   CLBeacon *beacon = [[CLBeacon alloc] init];
   beacon = [beacons lastObject];

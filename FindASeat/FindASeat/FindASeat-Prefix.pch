@@ -15,3 +15,10 @@
   #import <Foundation/Foundation.h>
   #import <CoreData/CoreData.h>
 #endif
+
+
+#if __has_feature(objc_arc)
+#define ARC_MEMBER __unsafe_unretained
+#else
+#define ARC_MEMBER
+#endif

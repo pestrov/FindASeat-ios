@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90729AFC199B6A8300826B53 /* MJDijkstra.m in Sources */ = {isa = PBXBuildFile; fileRef = 90729AF7199B6A8300826B53 /* MJDijkstra.m */; };
+		90729AFD199B6A8300826B53 /* MJPriorityDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90729AF9199B6A8300826B53 /* MJPriorityDictionary.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		90729AFE199B6A8300826B53 /* MJPriorityQueue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90729AFB199B6A8300826B53 /* MJPriorityQueue.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9082A2541994AD6800F92948 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9082A2531994AD6800F92948 /* Foundation.framework */; };
 		9082A2561994AD6800F92948 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9082A2551994AD6800F92948 /* CoreGraphics.framework */; };
 		9082A2581994AD6800F92948 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9082A2571994AD6800F92948 /* UIKit.framework */; };
@@ -35,9 +38,9 @@
 		9082A29F1994AEBB00F92948 /* IWHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A29D1994AEBB00F92948 /* IWHallViewController.m */; };
 		9082A2A01994AEBB00F92948 /* IWHallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9082A29E1994AEBB00F92948 /* IWHallViewController.xib */; };
 		9082A2A31994AFC500F92948 /* IWServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A2A21994AFC500F92948 /* IWServerManager.m */; };
-		A5CE48461994B74E00E75708 /* IWSeatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE48451994B74E00E75708 /* IWSeatsView.m */; };
 		9082A2A71994BA4900F92948 /* IWEntranceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A2A61994BA4900F92948 /* IWEntranceManager.m */; };
 		9082A2B01994C40400F92948 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9082A2AF1994C40400F92948 /* CoreBluetooth.framework */; };
+		A5CE48461994B74E00E75708 /* IWSeatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE48451994B74E00E75708 /* IWSeatsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90729AF6199B6A8300826B53 /* MJDijkstra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDijkstra.h; sourceTree = "<group>"; };
+		90729AF7199B6A8300826B53 /* MJDijkstra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDijkstra.m; sourceTree = "<group>"; };
+		90729AF8199B6A8300826B53 /* MJPriorityDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPriorityDictionary.h; sourceTree = "<group>"; };
+		90729AF9199B6A8300826B53 /* MJPriorityDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MJPriorityDictionary.mm; sourceTree = "<group>"; };
+		90729AFA199B6A8300826B53 /* MJPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPriorityQueue.h; sourceTree = "<group>"; };
+		90729AFB199B6A8300826B53 /* MJPriorityQueue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MJPriorityQueue.mm; sourceTree = "<group>"; };
 		9082A2501994AD6800F92948 /* FindASeat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindASeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9082A2531994AD6800F92948 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9082A2551994AD6800F92948 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,11 +93,11 @@
 		9082A29E1994AEBB00F92948 /* IWHallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IWHallViewController.xib; sourceTree = "<group>"; };
 		9082A2A11994AFC500F92948 /* IWServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWServerManager.h; sourceTree = "<group>"; };
 		9082A2A21994AFC500F92948 /* IWServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWServerManager.m; sourceTree = "<group>"; };
-		A5CE48441994B74E00E75708 /* IWSeatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWSeatsView.h; sourceTree = "<group>"; };
-		A5CE48451994B74E00E75708 /* IWSeatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWSeatsView.m; sourceTree = "<group>"; };
 		9082A2A51994BA4900F92948 /* IWEntranceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWEntranceManager.h; sourceTree = "<group>"; };
 		9082A2A61994BA4900F92948 /* IWEntranceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWEntranceManager.m; sourceTree = "<group>"; };
 		9082A2AF1994C40400F92948 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		A5CE48441994B74E00E75708 /* IWSeatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWSeatsView.h; sourceTree = "<group>"; };
+		A5CE48451994B74E00E75708 /* IWSeatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWSeatsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +241,12 @@
 		9082A2A81994BC7B00F92948 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				90729AF6199B6A8300826B53 /* MJDijkstra.h */,
+				90729AF7199B6A8300826B53 /* MJDijkstra.m */,
+				90729AF8199B6A8300826B53 /* MJPriorityDictionary.h */,
+				90729AF9199B6A8300826B53 /* MJPriorityDictionary.mm */,
+				90729AFA199B6A8300826B53 /* MJPriorityQueue.h */,
+				90729AFB199B6A8300826B53 /* MJPriorityQueue.mm */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -343,10 +358,13 @@
 			files = (
 				9082A2661994AD6800F92948 /* AppDelegate.m in Sources */,
 				9082A2A31994AFC500F92948 /* IWServerManager.m in Sources */,
+				90729AFC199B6A8300826B53 /* MJDijkstra.m in Sources */,
 				9082A29F1994AEBB00F92948 /* IWHallViewController.m in Sources */,
 				A5CE48461994B74E00E75708 /* IWSeatsView.m in Sources */,
 				9082A2A71994BA4900F92948 /* IWEntranceManager.m in Sources */,
+				90729AFD199B6A8300826B53 /* MJPriorityDictionary.mm in Sources */,
 				9082A2691994AD6800F92948 /* FindASeat.xcdatamodeld in Sources */,
+				90729AFE199B6A8300826B53 /* MJPriorityQueue.mm in Sources */,
 				9082A2621994AD6800F92948 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
