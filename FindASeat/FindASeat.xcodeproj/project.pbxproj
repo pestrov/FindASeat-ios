@@ -40,6 +40,7 @@
 		9082A2A31994AFC500F92948 /* IWServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A2A21994AFC500F92948 /* IWServerManager.m */; };
 		9082A2A71994BA4900F92948 /* IWEntranceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9082A2A61994BA4900F92948 /* IWEntranceManager.m */; };
 		9082A2B01994C40400F92948 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9082A2AF1994C40400F92948 /* CoreBluetooth.framework */; };
+		A54A30A7199B6DA80036F980 /* IWAnalyticsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A54A30A6199B6DA80036F980 /* IWAnalyticsView.m */; };
 		A5CE48461994B74E00E75708 /* IWSeatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE48451994B74E00E75708 /* IWSeatsView.m */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,9 @@
 		9082A2A51994BA4900F92948 /* IWEntranceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWEntranceManager.h; sourceTree = "<group>"; };
 		9082A2A61994BA4900F92948 /* IWEntranceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWEntranceManager.m; sourceTree = "<group>"; };
 		9082A2AF1994C40400F92948 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+
+		A54A30A5199B6DA80036F980 /* IWAnalyticsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWAnalyticsView.h; sourceTree = "<group>"; };
+		A54A30A6199B6DA80036F980 /* IWAnalyticsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWAnalyticsView.m; sourceTree = "<group>"; };
 		A5CE48441994B74E00E75708 /* IWSeatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWSeatsView.h; sourceTree = "<group>"; };
 		A5CE48451994B74E00E75708 /* IWSeatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWSeatsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +193,8 @@
 				9082A29E1994AEBB00F92948 /* IWHallViewController.xib */,
 				A5CE48441994B74E00E75708 /* IWSeatsView.h */,
 				A5CE48451994B74E00E75708 /* IWSeatsView.m */,
+				A54A30A5199B6DA80036F980 /* IWAnalyticsView.h */,
+				A54A30A6199B6DA80036F980 /* IWAnalyticsView.m */,
 				9082A2A81994BC7B00F92948 /* Model */,
 				9082A2A41994AFCC00F92948 /* Network */,
 				9082A26A1994AD6800F92948 /* Images.xcassets */,
@@ -366,6 +372,7 @@
 				9082A2691994AD6800F92948 /* FindASeat.xcdatamodeld in Sources */,
 				90729AFE199B6A8300826B53 /* MJPriorityQueue.mm in Sources */,
 				9082A2621994AD6800F92948 /* main.m in Sources */,
+				A54A30A7199B6DA80036F980 /* IWAnalyticsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
