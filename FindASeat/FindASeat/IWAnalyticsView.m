@@ -33,7 +33,7 @@
     }
   }
   
-  label.text = [NSString stringWithFormat:@"%d/%d", vacant, occupied+vacant];
+  label.text = [NSString stringWithFormat:@"%d/%d vacant seats", vacant, occupied+vacant];
   [label sizeToFit];
   label.center = CGPointMake(self.bounds.size.width/2.0, self.bounds.size.height/2.0);
   [self addSubview:label];

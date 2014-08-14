@@ -29,7 +29,7 @@
   [[UIApplication sharedApplication] cancelAllLocalNotifications];
   
   UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-  localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
+  localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
   localNotification.alertBody = @"Get the best seat in the room";
   localNotification.timeZone = [NSTimeZone defaultTimeZone];
   [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];

@@ -30,10 +30,30 @@
 }
 
 - (void)showClosestSeat {
-  UIView * seatView = [self.seatViews objectAtIndex:self.closestSeatNumber%11];
-  for (UIView * subview in seatView.subviews) {
-    if ([subview isKindOfClass:[UILabel class]]) {
-      [(UILabel *)subview setTextColor:[UIColor whiteColor]];
+  for (UIView * seatView in self.seatViews) {
+    UIImageView * subviewImage = nil;
+    for (UIView * subview in seatView.subviews) {
+      BOOL makeItMarked = NO;
+      if ([subview isKindOfClass:[UILabel class]]) {
+        if ( [[(UILabel *)subview text] isEqualToString:[NSString stringWithFormat:@"%d", self.closestSeatNumber]]) {
+          [(UILabel *)subview setTextColor:[UIColor whiteColor]];
+          makeItMarked = YES;
+          [subviewImage setImage:[UIImage imageNamed:@"tick"]];
+          [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
+            seatView.center = CGPointMake(seatView.center.x, seatView.center.y-5.0);
+          } completion:nil];
+        }
+      }
+      if ([subview isKindOfClass:[UIImageView class]]) {
+        subviewImage = (UIImageView *)subview;
+        if (makeItMarked) {
+          [subviewImage setImage:[UIImage imageNamed:@"tick"]];
+          [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
+            seatView.center = CGPointMake(seatView.center.x, seatView.center.y-5.0);
+          } completion:nil];
+        }
+      }
+
     }
   }
 }
@@ -51,11 +71,13 @@
     [self drawSeatWithFrame:seatPlace andNumber:seatDict[@"number"] vacant:seatDict[@"vacant"]];
   }
   [self sizeToFit];
-  self.center = CGPointMake(self.superview.bounds.size.width/2.0, self.superview.bounds.size.height/2.0);
+  self.center = CGPointMake(-20.0, self.superview.bounds.size.height/2.0);
 }
 
 - (CGSize)sizeThatFits:(CGSize)size
 {
+  CGFloat minimumX = size.width;
+  CGFloat minimumY = size.height;
   CGFloat maximumX = 0.0;
   CGFloat maximumY = 0.0;
   for (UIView * view in self.subviews) {
@@ -65,9 +87,15 @@
     if ((view.frame.origin.y + view.frame.size.height) > maximumY) {
       maximumY = view.frame.origin.y + view.frame.size.height;
     }
+    if ((view.frame.origin.x) < minimumX) {
+      minimumX = view.frame.origin.x;
+    }
+    if ((view.frame.origin.y) < minimumY) {
+      minimumY = view.frame.origin.y;
+    }
   }
   if (maximumX > 0.0 && maximumY > 0.0) {
-    return CGSizeMake(maximumX, maximumY);
+    return CGSizeMake(maximumX-minimumX, maximumY-minimumY);
   } else {
     return size;
   }
@@ -76,20 +104,21 @@
 - (void)drawSeatWithFrame:(CGRect)frame andNumber:(NSNumber *)number vacant:(id)vacant
 {
   UIView * seatView = [[UIView alloc]initWithFrame:frame];
-  UIImageView * icon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"SeatIcon"]];
+  UIImageView * icon;
+  if ([vacant integerValue]) {
+    icon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"green"]];
+  } else {
+    icon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"red"]];
+  }
   icon.frame = CGRectMake(0.0, 0.0, seatView.frame.size.width, seatView.frame.size.height);
   [seatView addSubview:icon];
   
   UILabel * numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
   numberLabel.text = [NSString stringWithFormat:@"%d", number.intValue];
   numberLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0];
-  if ([vacant integerValue])
-    numberLabel.textColor = [UIColor greenColor];
-  else
-    numberLabel.textColor = [UIColor redColor];
-  
   [numberLabel sizeToFit];
   numberLabel.center = CGPointMake(seatView.bounds.size.width/2.0, seatView.bounds.size.height/3.0);
+  numberLabel.alpha = 0.0;
   [seatView addSubview:numberLabel];
 
   [self.seatViews addObject:seatView];
@@ -98,6 +127,7 @@
 
 - (CGFloat)scaleCoefForFrame:(CGRect)frame
 {
+  return 0.45;
   return MIN(self.frame.size.width/frame.size.width, self.frame.size.height/frame.size.height);
   
   /* Former scale

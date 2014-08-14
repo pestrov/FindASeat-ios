@@ -125,7 +125,7 @@
     if ([emptySeatsDist[seatId] isEqual:sortedDistances.firstObject])
       bestSeat = @(seatId.integerValue);
   
-   [[NSNotificationCenter defaultCenter] postNotificationName:IWClosestSeatNotification object:nil userInfo:@{@"closestSeat":@81}];
+   [[NSNotificationCenter defaultCenter] postNotificationName:IWClosestSeatNotification object:nil userInfo:@{@"closestSeat":@82}];
 }
 
 + (NSUInteger)weightForSeat:(NSDictionary *)seatInfo {
