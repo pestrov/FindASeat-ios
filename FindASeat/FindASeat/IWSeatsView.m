@@ -33,7 +33,7 @@
   UIView * seatView = [self.seatViews objectAtIndex:self.closestSeatNumber%11];
   for (UIView * subview in seatView.subviews) {
     if ([subview isKindOfClass:[UILabel class]]) {
-      [(UILabel *)subview setTextColor:[UIColor redColor]];
+      [(UILabel *)subview setTextColor:[UIColor whiteColor]];
     }
   }
 }
@@ -44,8 +44,8 @@
     CGFloat seatWidth = [[seatDict[@"size"] firstObject] floatValue];
     CGFloat seatHeight = [[seatDict[@"size"] lastObject] floatValue];
     
-    CGFloat seatX = [[seatDict[@"position"] firstObject] floatValue] - seatWidth/2.0;
-    CGFloat seatY = [[seatDict[@"position"] lastObject] floatValue] - seatHeight/2.0;
+    CGFloat seatX = [[seatDict[@"position"] firstObject] floatValue]; //- seatWidth/2.0;
+    CGFloat seatY = [[seatDict[@"position"] lastObject] floatValue]; //- seatHeight/2.0;
     
     CGRect seatPlace = CGRectMake(scale*seatX, scale*seatY, scale*seatWidth, scale*seatHeight);
     [self drawSeatWithFrame:seatPlace andNumber:seatDict[@"number"] vacant:seatDict[@"vacant"]];
@@ -86,7 +86,7 @@
   if ([vacant integerValue])
     numberLabel.textColor = [UIColor greenColor];
   else
-    numberLabel.textColor = [UIColor whiteColor];
+    numberLabel.textColor = [UIColor redColor];
   
   [numberLabel sizeToFit];
   numberLabel.center = CGPointMake(seatView.bounds.size.width/2.0, seatView.bounds.size.height/3.0);
