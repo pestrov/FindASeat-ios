@@ -26,6 +26,13 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     self.entranceManager = [[IWEntranceManager alloc] init];
+  [[UIApplication sharedApplication] cancelAllLocalNotifications];
+  
+  UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+  localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
+  localNotification.alertBody = @"Get the best seat in the room";
+  localNotification.timeZone = [NSTimeZone defaultTimeZone];
+  [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     return YES;
 }
 
@@ -143,6 +150,7 @@
     
     return _persistentStoreCoordinator;
 }
+
 
 #pragma mark - Application's Documents directory
 

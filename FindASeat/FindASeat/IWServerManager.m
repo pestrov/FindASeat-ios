@@ -108,7 +108,8 @@
   for (NSDictionary *seat in seats) {
     if (![seat[@"vacant"] boolValue])
       continue;
-    emptySeatsDist[[self seatID:seat]] = solution.distances[[self seatID:seat]];
+    if (solution.distances[[self seatID:seat]])
+      emptySeatsDist[[self seatID:seat]] = solution.distances[[self seatID:seat]];
   }
   
   NSArray *sortedDistances = [emptySeatsDist.allValues sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
